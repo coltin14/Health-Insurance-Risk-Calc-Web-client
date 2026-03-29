@@ -63,14 +63,14 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const riskData = await riskResponse.json();
 
     document.getElementById("result").innerHTML = `
-      <h3>Results:</h3>
-      BMI: ${bmiResult.bmi}<br>
-      BMI Category: ${bmiResult.category}<br>
-      Blood Pressure Category: ${bpCategory}<br>
-      Family History: ${familyHistory.join(", ") || "None"}<br>
-      Risk Score: ${riskData.riskScore}<br>
-      Risk Level: ${riskData.riskLevel}
-    `;
+        <h3>Results:</h3>
+        BMI: ${bmiResult.bmi !== undefined ? bmiResult.bmi : "Not provided"}<br>
+        BMI Category: ${bmiResult.category !== undefined ? bmiResult.category : "Not provided"}<br>
+        Blood Pressure Category: ${bpCategory !== undefined ? bpCategory : "Not provided"}<br>
+        Family History: ${familyHistory.length > 0 ? familyHistory.join(", ") : "None"}<br>
+        Risk Score: ${riskData.riskScore !== undefined ? riskData.riskScore : "Not provided"}<br>
+        Risk Level: ${riskData.riskLevel !== undefined ? riskData.riskLevel : "Not provided"}
+        `;
 
   } catch (error) {
     console.error(error);
