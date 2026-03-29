@@ -27,8 +27,8 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const diastolic = Number(document.getElementById("diastolic").value);
 
     const familyHistory = [];
-    if (document.getElementById("diabetes").checked) familyHistory.push("diabetes");
-    if (document.getElementById("cancer").checked) familyHistory.push("cancer");
+    if (document.getElementById("diabetes").checked) familyHistory.push("Diabetes");
+    if (document.getElementById("cancer").checked) familyHistory.push("Cancer");
     if (document.getElementById("Alzheimer").checked) familyHistory.push("Alzheimer");
 
     // Call BMI API
