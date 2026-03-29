@@ -1,0 +1,78 @@
+body{
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    max-width: 800px;
+    line-height: 1.6;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    color: thistle;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#urlInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: thistle;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d8bfd8;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#testingDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+}
+
+#pingStatus {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+#out {
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 20px;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+    border-left: 5px solid thistle;
+}
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
