@@ -1,6 +1,6 @@
 const API_URL = 'https://health-insurance-risk-calc-server-backlog-fngae6hphbgcchd8.centralus-01.azurewebsites.net';
 
-// Wake up the API on page load
+// wake up the API on page load
 async function wakeUpAPI() {
   try {
     const res = await fetch(`${API_URL}/ping`);
@@ -19,7 +19,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
   try {
     document.getElementById("result").innerText = "Loading...";
 
-    // Get input values
+    // get input values
     const age = document.getElementById("age").value;
     const heightFeet = document.getElementById("heightFeet").value;
     const heightInches = document.getElementById("heightInches").value;
@@ -27,7 +27,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const systolic = document.getElementById("systolic").value;
     const diastolic = document.getElementById("diastolic").value;
 
-    // Frontend validation
+    // frontend validation
     if (!age || !heightFeet || !heightInches || !weight || !systolic || !diastolic) {
       document.getElementById("result").innerText = "Please fill in all fields.";
       return;
@@ -41,18 +41,17 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       Number(systolic) <= 0 ||
       Number(diastolic) < 0
     ) {
-      alert("Please enter positive numbers for age, height, weight, and blood pressure.");
-      document.getElementById("result").innerText = "";
+      document.getElementById("result").innerText = "Please enter positive numbers for age, height, weight, and blood pressure.";
       return;
     }
 
-    // Collect family history
+    // collect family history
     const familyHistory = [];
     if (document.getElementById("diabetes").checked) familyHistory.push("Diabetes");
     if (document.getElementById("cancer").checked) familyHistory.push("Cancer");
     if (document.getElementById("Alzheimer").checked) familyHistory.push("Alzheimer");
 
-    // Call BMI API
+    // call BMI API
     const bmiResponse = await fetch(`${API_URL}/bmi`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -65,7 +64,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const bmiResult = await bmiResponse.json();
     const bmiCategory = bmiResult.category || "Field required";
 
-    // Call BP API
+    // call BP API
     const bpResponse = await fetch(`${API_URL}/bp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -77,7 +76,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const bpResult = await bpResponse.json();
     const bpCategory = bpResult.category || "Field required";
 
-    // Call Risk API
+    // call Risk API
     const riskResponse = await fetch(`${API_URL}/risk`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -90,7 +89,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     });
     const riskData = await riskResponse.json();
 
-    // Display results
+    // display results
     document.getElementById("result").innerHTML = `
       <h3>Results:</h3>
       BMI: ${bmiResult.bmi || "Field required"}<br>
