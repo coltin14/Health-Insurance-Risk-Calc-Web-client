@@ -52,6 +52,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     if (document.getElementById("Alzheimer").checked) familyHistory.push("Alzheimer");
 
     // call BMI API
+	console.log("Calling BMI API")
     const bmiResponse = await fetch(`${API_URL}/bmi`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -62,9 +63,11 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       })
     });
     const bmiResult = await bmiResponse.json();
+	console.log("Response: ", bmiResult)
     const bmiCategory = bmiResult.category || "Field required";
 
     // call BP API
+	console.log("Calling Blood Pressure API")
     const bpResponse = await fetch(`${API_URL}/bp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -74,9 +77,11 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       })
     });
     const bpResult = await bpResponse.json();
+	console.log("Response: ", bpResult)
     const bpCategory = bpResult.category || "Field required";
 
     // call Risk API
+	console.log("Calling Risk API")
     const riskResponse = await fetch(`${API_URL}/risk`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -88,6 +93,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       })
     });
     const riskData = await riskResponse.json();
+	console.log("Response: ", riskData)
 
     // display results
     document.getElementById("result").innerHTML = `
